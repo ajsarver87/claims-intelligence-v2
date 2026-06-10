@@ -182,10 +182,10 @@ def load_cms_part_d_prescriber_data(context, gcs: GCSResource, bigquery: BigQuer
 
         asset_metadata["skipped_file_download"] = False
 
-    gcp_project_id = EnvVar("GCP_PROJECT")
-    dataset_id = EnvVar("GCP_RAW_DATASET")
-    staging_table_name_base = EnvVar("GCP_RAW_STAGING_TABLE_BASE")
-    final_raw_table = EnvVar("GCP_RAW_TABLE")
+    gcp_project_id = EnvVar("GCP_PROJECT").get_value()
+    dataset_id = EnvVar("GCP_RAW_DATASET").get_value()
+    staging_table_name_base = EnvVar("GCP_RAW_STAGING_TABLE_BASE").get_value()
+    final_raw_table = EnvVar("GCP_RAW_TABLE").get_value()
 
     # Set parameters
     staging_table_id = f"{staging_table_name_base}_{year}"
