@@ -8,7 +8,7 @@ claims_intelligence_dbt:
       location: "{{ env_var('GCP_PROJECT_LOCATION') }}"
       method: service-account
       priority: interactive
-      project: claims-intelligence
+      project: "{{ env_var('GCP_PROJECT') }}"
       threads: 1
       type: bigquery
   target: dev

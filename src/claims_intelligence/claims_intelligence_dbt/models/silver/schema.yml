@@ -2,10 +2,10 @@ version: 2
 
 sources:
   - name: part_d_raw
-    database: claims-intelligence
-    schema: raw
+    database: "{{ env_var('GCP_PROJECT') }}"
+    schema: "{{ env_var('GCP_RAW_DATASET') }}"
     tables:
-      - name: raw_data
+      - name: "{{ env_var('GCP_RAW_TABLE') }}"
         loaded_at_field: loaded_at
 
 models:
