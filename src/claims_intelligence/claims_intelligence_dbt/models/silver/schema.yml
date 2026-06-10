@@ -1,0 +1,22 @@
+version: 2
+
+sources:
+  - name: part_d_raw
+    database: claims-intelligence
+    schema: raw
+    tables:
+      - name: raw_data
+        loaded_at_field: loaded_at
+
+models:
+  - name: part_d_silver
+    columns:
+      - name: prescriber_npi
+        tests:
+          - not_null
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - prescriber_npi
+            - data_year
+

@@ -1,0 +1,41 @@
+[project]
+name = "claims-intelligence-v2"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "dagster",
+    "dagster-gcp",
+    "dagster-gcp-pandas",
+    "dagster-dbt",
+    "dbt-bigquery",
+    "pandas",
+    "requests",
+    "pyarrow",
+    "numpy",
+    "matplotlib",
+    "httpx",
+]
+
+[dependency-groups]
+dev = [
+    "dagster-webserver",
+    "dagster-dg-cli",
+    "pytest",
+    "python-dotenv",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.dg]
+directory_type = "project"
+
+[tool.dg.project]
+root_module = "claims_intelligence"
+registry_modules = [
+    "project_dbt.components.*",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/claims_intelligence"]

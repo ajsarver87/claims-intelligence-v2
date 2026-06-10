@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: dim_prescriber
+    columns:
+      - name: prescriber_sk
+        tests:
+          - not_null
+          - unique
+  - name: dim_prescriber_address
+    columns:
+      - name: prescriber_sk
+        tests:
+          - not_null
+          - unique
+  - name: fct_prescriber_claims
+    columns:
+      - name: prescriber_sk
+        tests:
+          - not_null
+          - unique
